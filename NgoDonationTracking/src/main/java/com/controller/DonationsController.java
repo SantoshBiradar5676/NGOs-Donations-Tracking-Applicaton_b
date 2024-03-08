@@ -46,7 +46,7 @@ public class DonationsController {
     public String createOrder(@RequestBody Map<String, Object> data) throws RazorpayException {
     	System.out.println(data);
     	int amount =Integer.parseInt(data.get("amount").toString());
-    	  var client = new RazorpayClient("rzp_test_p655u5Bttj4BbO", "7W7WnKpIKRDrptU9C43usHwB");
+    	  var client = new RazorpayClient("rzp_test_M1sggR7jCFARkD", "qJRkoqROnGoEBnnQV510FyQW");
           JSONObject ob = new JSONObject();
           ob.put("amount", amount * 100);
           ob.put("currency", "INR");

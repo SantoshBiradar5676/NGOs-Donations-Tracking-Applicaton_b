@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.UserRepository;
+
 import com.model.Users;
 
 import java.util.List;
@@ -44,5 +45,12 @@ public class UserService {
     	Users existingUser=userRepository.findById(id).orElse(null);
         userRepository.delete(existingUser);
     }
+    
+    public Users findByEmailIdAndPassword(String email, String password) {
+
+		return userRepository.findByEmailIdAndPassword(email, password);
+	}
+    
+    
 }
 

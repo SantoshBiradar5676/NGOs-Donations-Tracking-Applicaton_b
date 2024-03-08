@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import com.model.Users;
 import com.service.UserService;
 
@@ -61,5 +62,23 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        
+    }
+    	@PostMapping("/loginUser")
+    	public Users loginUser(@RequestBody Users user) throws Exception {
+    		String tempEmail=user.getEmail();
+    		String tempPass=user.getPassword();
+    		Users userObj=null;
+    		if(tempEmail !=null && tempPass!=null) {
+    			userObj=userService.findByEmailIdAndPassword(tempEmail, tempPass);
+    		}
+    		if(userObj==null) {
+    			throw new Exception("Bad Creadentials");
+    		}
+    		return userObj;
+    		
+    	
+        
+        
     }
 }

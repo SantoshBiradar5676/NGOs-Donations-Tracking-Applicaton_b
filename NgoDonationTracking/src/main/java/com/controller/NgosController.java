@@ -42,7 +42,7 @@ public class NgosController {
     
     //findByName
     
-    @GetMapping("/getNgo/{name}")
+    @GetMapping("/getNgobyname/{name}")
     public ResponseEntity<Ngos> getNgoByName(@PathVariable String name) {
     	Ngos ngo=ngoService.getNgoByName(name);
     	return ngo != null
