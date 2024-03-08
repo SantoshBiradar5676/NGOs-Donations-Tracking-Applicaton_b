@@ -41,7 +41,7 @@ public class UserController {
                 :  ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
     	//getByUserName
-    @GetMapping("getUser/{name}")
+    @GetMapping("getbyName/{name}")
     public ResponseEntity<Users> getUserByName(@PathVariable String name) {
         Users user = userService.getUserByName(name);
         return user != null
